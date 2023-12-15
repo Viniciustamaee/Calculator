@@ -3,8 +3,11 @@ const charSpecialButtons = document.querySelectorAll('#charSpecial');
 const sendButton = document.querySelector('#send');
 const screen = document.querySelector('input');
 const clear = document.querySelector('#c')
+const backSpace = document.querySelector('#backSpace')
 
 screen.value = 0
+let count = screen.value
+
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
@@ -39,6 +42,8 @@ window.addEventListener('keydown', (e) => {
         sendButton.click();
     } else if (e.key === 'c') {
         screen.value = ''
+    } else if (e.key === 'Backspace') {
+        alert('fdsllkj')
     }
 })
 
