@@ -5,11 +5,12 @@ const screen = document.querySelector('input');
 const clear = document.querySelector('#c')
 
 
+screen.value = 0
+
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
         const number = this.textContent;
         screen.value += number;
-
     });
 });
 
@@ -24,6 +25,7 @@ charSpecialButtons.forEach(function (specialButton) {
 clear.addEventListener('click', () => {
     screen.value = ''
 })
+
 
 sendButton.addEventListener('click', () => {
     let result = eval(screen.value)
