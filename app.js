@@ -4,7 +4,6 @@ const sendButton = document.querySelector('#send');
 const screen = document.querySelector('input');
 const clear = document.querySelector('#c')
 
-
 screen.value = 0
 
 numberButtons.forEach(function (numberButton) {
@@ -31,4 +30,18 @@ sendButton.addEventListener('click', () => {
     let result = eval(screen.value)
     console.log(result)
     screen.value = result
+})
+
+window.addEventListener('keydown', (e) => {
+    if (!isNaN(e.key) || ['+', '-', '*', '/'].includes(e.key)) {
+        screen.value += e.key;
+    } else if (e.key === 'Enter') {
+        sendButton.click();
+    } else if (e.key === 'c') {
+        screen.value = ''
+    }
+})
+
+window.addEventListener('keydown', (e) => {
+    console.log(e.key)
 })
