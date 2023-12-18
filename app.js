@@ -1,52 +1,48 @@
 const numberButtons = document.querySelectorAll('#number');
 const charSpecialButtons = document.querySelectorAll('#charSpecial');
 const sendButton = document.querySelector('#send');
-const screen = document.querySelector('input');
 const clear = document.querySelector('#c')
 const backSpace = document.querySelector('#backSpace')
-
-screen.value = 0
-let count = screen.value
+const screen = document.querySelector('h2')
 
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
         const number = this.textContent;
-        screen.value += number;
+        screen.textContent += number;
     });
 });
 
 charSpecialButtons.forEach(function (specialButton) {
     specialButton.addEventListener('click', function () {
         const special = this.textContent;
-        screen.value += special;
-
+        screen.textContent += special;
     });
 });
 
 clear.addEventListener('click', () => {
-    screen.value = ''
+    screen.innerText = ''
 })
 
-
 sendButton.addEventListener('click', () => {
-    let result = eval(screen.value)
+    let result = eval(screen.innerText)
     console.log(result)
-    screen.value = result
+    screen.innerText = result
+})
+
+backSpace.addEventListener('click', () => {
+    screen.innerText = screen.innerText.slice(0, -1);
 })
 
 window.addEventListener('keydown', (e) => {
     if (!isNaN(e.key) || ['+', '-', '*', '/'].includes(e.key)) {
-        screen.value += e.key;
+        screen.innerText += e.key;
     } else if (e.key === 'Enter') {
         sendButton.click();
     } else if (e.key === 'c') {
-        screen.value = ''
+        screen.innerText = ''
     } else if (e.key === 'Backspace') {
-        alert('fdsllkj')
+        screen.innerText = screen.innerText.slice(0, -1);
     }
 })
 
-window.addEventListener('keydown', (e) => {
-    console.log(e.key)
-})
