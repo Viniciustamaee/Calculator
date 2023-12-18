@@ -26,6 +26,7 @@ button {
     border-radius: 50%;
     border: none;
     margin: 5px 5px;
+    font-size: 25px;
 }
 
 #number {
@@ -34,5 +35,25 @@ button {
 }
 
 #c {
-    padding: 8.5%;
+    padding: 7%;
+}
+
+.sla {
+    padding: 10.9%;
+}
+
+.vamo {
+    padding: 10%;
+}
+
+.arrumar {
+    padding: 10.5%;
+}
+
+.isso {
+    padding: 11%;
+}
+
+.emCasa {
+    padding: 9.5%;
 }
