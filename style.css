@@ -1,0 +1,38 @@
+body {
+    background-color: #221a1f;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 40px;
+}
+
+
+header h2 {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border-radius: 10px;
+    padding-left: 10px;
+    color: white;
+    background-color: #3f2d39;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10%;
+    border-radius: 50%;
+    border: none;
+    margin: 5px 5px;
+}
+
+#number {
+    background-color: #3f2d39;
+    color: white;
+}
+
+#c {
+    padding: 8.5%;
+}
