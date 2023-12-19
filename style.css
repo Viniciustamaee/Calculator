@@ -6,24 +6,25 @@ body {
 
 .container {
     border: 2px solid #14213d;
-    width: 44% !important;
-    height: 750px;
     background-color: black;
     border-radius: 50px;
+    width: 40% !important;
+
 }
 
 header h2 {
     display: flex;
     align-items: center;
-    height: 70px;
+    background-color: #343a40;
+    color: white;
+    height: 100px;
     border-radius: 30px;
     padding-left: 30px;
-    color: white;
 }
 
 button {
     height: 100px;
-    width: 140px;
+    width: 100px;
     border: none;
 }
 
@@ -41,14 +42,34 @@ button {
 #backSpace {
     background-color: #ff9f0a;
     color: white;
-    font-size: 30px;
 }
 
-.cotnainer {
-    width: 40%;
-    height: auto;
-}
 
 hr {
     color: #a5a5a5 !important;
+}
+
+@media (max-width: 770px) {
+    button {
+        height: 50px;
+        width: 50px;
+    }
+
+    .container {
+        width: auto;
+    }
+}
+
+@media (max-width: 1577px) {
+    .container {
+        width: 50% !important;
+
+    }
+}
+
+@media (max-width: 1250px) {
+    .container {
+        width: auto !important;
+
+    }
 }
