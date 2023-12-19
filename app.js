@@ -9,7 +9,7 @@ const screen = document.querySelector('h2')
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
         const number = this.textContent;
-        screen.textContent += number;
+        screen.textContent = number;
     });
 });
 
