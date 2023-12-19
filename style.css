@@ -1,59 +1,54 @@
 body {
-    background-color: #221a1f;
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
     margin-top: 40px;
 }
 
+.container {
+    border: 2px solid #14213d;
+    width: 44% !important;
+    height: 750px;
+    background-color: black;
+    border-radius: 50px;
+}
 
 header h2 {
     display: flex;
     align-items: center;
     height: 70px;
-    border-radius: 10px;
-    padding-left: 10px;
+    border-radius: 30px;
+    padding-left: 30px;
     color: white;
-    background-color: #3f2d39;
-}
-
-section {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 button {
-    padding: 10%;
-    border-radius: 50%;
+    height: 100px;
+    width: 140px;
     border: none;
-    margin: 5px 5px;
-    font-size: 25px;
 }
 
 #number {
-    background-color: #3f2d39;
+    background-color: #333333;
     color: white;
 }
 
 #c {
-    padding: 7%;
+    background-color: #a5a5a5;
 }
 
-.sla {
-    padding: 10.9%;
+#charSpecial,
+#send,
+#backSpace {
+    background-color: #ff9f0a;
+    color: white;
+    font-size: 30px;
 }
 
-.vamo {
-    padding: 10%;
+.cotnainer {
+    width: 40%;
+    height: auto;
 }
 
-.arrumar {
-    padding: 10.5%;
-}
-
-.isso {
-    padding: 11%;
-}
-
-.emCasa {
-    padding: 9.5%;
+hr {
+    color: #a5a5a5 !important;
 }
