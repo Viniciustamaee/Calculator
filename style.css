@@ -5,8 +5,8 @@ body {
 }
 
 .container {
-    border: 2px solid #14213d;
-    background-color: black;
+    border: 2px solid #adb5bd;
+    background-color: #495057;
     border-radius: 50px;
     width: 40% !important;
 
@@ -15,7 +15,7 @@ body {
 header h2 {
     display: flex;
     align-items: center;
-    background-color: #343a40;
+    background-color: #6c757d;
     color: white;
     height: 100px;
     border-radius: 30px;

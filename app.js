@@ -22,29 +22,36 @@ numberButtons.forEach(function (numberButton) {
 charSpecialButtons.forEach(function (specialButton) {
     specialButton.addEventListener('click', function () {
         const special = this.textContent;
-        screen.textContent += special;
+        const size = screen.textContent.length - 1
+        if (!['+', '-', '/', '*'].includes(screen.textContent[size])) {
+            screen.textContent += special;
+        }
+
     });
 });
 
 clear.addEventListener('click', () => {
-    screen.innerText = '0'
-    point.disabled = false
+    screen.textContent = '0'
 })
 
+
+
 sendButton.addEventListener('click', () => {
-    let result = eval(screen.innerText);
+    let result = eval(screen.textContent);
     console.log(result);
-    screen.innerText = result
+    screen.textContent = result
+
+
 });
 
 
 backSpace.addEventListener('click', () => {
-    screen.innerText = screen.innerText.slice(0, -1);
+    screen.textContent = screen.textContent.slice(0, -1);
 })
 
 
 point.addEventListener('click', () => {
-    screen.innerText += point.innerText
+    screen.textContent += point.textContent
 
 })
 
