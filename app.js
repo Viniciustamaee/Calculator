@@ -5,18 +5,13 @@ const clear = document.querySelector('#deleteAll');
 const backSpace = document.querySelector('#delete');
 const screen = document.querySelector('h2');
 const point = document.querySelector('#point');
-
-let globalNumber;
+let previousResult = 0;
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
         const number = this.textContent;
         globalNumber = number
-        if (screen.textContent == '0') {
-            screen.textContent = number;
-        } else {
-            screen.textContent += number;
-        }
+        screen.textContent += number;
     });
 });
 
@@ -36,18 +31,29 @@ charSpecialButtons.forEach(function (specialButton) {
 });
 
 clear.addEventListener('click', () => {
-    screen.textContent = '0'
+    screen.textContent = ''
+    previousResult = 0
 })
 
 
 
 sendButton.addEventListener('click', () => {
-    let result = eval(screen.textContent);
-    console.log(result);
-    screen.textContent = result
+    let currentResult = eval(screen.textContent);
+    let finalResult = previousResult + currentResult;
 
+    console.log(finalResult);
+    screen.textContent = finalResult;
 
+    previousResult = finalResult;
 });
+
+
+
+
+
+
+
+
 
 
 backSpace.addEventListener('click', () => {
