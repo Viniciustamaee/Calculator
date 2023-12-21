@@ -59,10 +59,9 @@ backSpace.addEventListener('click', () => {
 
 point.addEventListener('click', () => {
     let size = screen.textContent.length - 1;
+    pointAcount = true
     if (screen.textContent == '') {
-
     } else if (!['.', '+', '-', '/', '*'].includes(screen.textContent[size])) {
-
         screen.textContent += point.textContent;
         console.log(pointAcount);
 
