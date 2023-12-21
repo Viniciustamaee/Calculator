@@ -25,7 +25,7 @@ charSpecialButtons.forEach(function (specialButton) {
         if (!['+', '-', '/', '*'].includes(screen.textContent[size])) {
             if (special === '-' && screen.textContent === '') {
                 screen.textContent += special
-            } else if (size === 1) {
+            } else if (typeof screen.textContent[size] == 'string') {
                 screen.textContent += special
             }
         }
@@ -58,8 +58,8 @@ backSpace.addEventListener('click', () => {
 point.addEventListener('click', () => {
     clickButton = 0
     const size = screen.textContent.length - 1
-    if (screen.textContent[size].includes(globalNumber))
-        screen.textContent += point.textContent
+    screen.textContent += point.textContent
+
 })
 
 
