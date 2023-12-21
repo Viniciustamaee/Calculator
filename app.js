@@ -23,7 +23,11 @@ charSpecialButtons.forEach(function (specialButton) {
         const special = this.textContent;
         const size = screen.textContent.length - 1
         if (!['+', '-', '/', '*'].includes(screen.textContent[size])) {
-            screen.textContent += special
+            if (special === '-' && screen.textContent === '') {
+                screen.textContent += special
+            } else if (size === 1) {
+                screen.textContent += special
+            }
         }
     });
 });
