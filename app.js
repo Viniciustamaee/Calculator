@@ -5,63 +5,54 @@ const clear = document.querySelector('#deleteAll');
 const backSpace = document.querySelector('#delete');
 const screen = document.querySelector('h2');
 const point = document.querySelector('#point');
-let previousResult = 0;
+clickButton = 0
+
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
+        clickButton = 0
         const number = this.textContent;
-        globalNumber = number
         screen.textContent += number;
+
     });
 });
 
-
 charSpecialButtons.forEach(function (specialButton) {
     specialButton.addEventListener('click', function () {
+        clickButton = 0
         const special = this.textContent;
         const size = screen.textContent.length - 1
         if (!['+', '-', '/', '*'].includes(screen.textContent[size])) {
-            if (screen.textContent == '0' && special === '-') {
-                screen.textContent = special;
-            } else {
-                screen.textContent += special
-            }
+            screen.textContent += special
         }
     });
 });
 
 clear.addEventListener('click', () => {
     screen.textContent = ''
-    previousResult = 0
+    clickButton = 0
 })
-
 
 
 sendButton.addEventListener('click', () => {
     let currentResult = eval(screen.textContent);
-    let finalResult = previousResult + currentResult;
+    console.log(currentResult);
+    clickButton++;
+    if (clickButton >= 2) {
+        screen.textContent = currentResult * 2
+    } else {
+        screen.textContent = currentResult;
+    }
 
-    console.log(finalResult);
-    screen.textContent = finalResult;
-
-    previousResult = finalResult;
 });
-
-
-
-
-
-
-
-
-
 
 backSpace.addEventListener('click', () => {
     screen.textContent = screen.textContent.slice(0, -1);
+    clickButton = 0
 })
 
-
 point.addEventListener('click', () => {
+    clickButton = 0
     const size = screen.textContent.length - 1
     if (screen.textContent[size].includes(globalNumber))
         screen.textContent += point.textContent
