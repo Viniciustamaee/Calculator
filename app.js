@@ -4,63 +4,70 @@ const sendButton = document.querySelector('.send');
 const clear = document.querySelector('#deleteAll');
 const backSpace = document.querySelector('#delete');
 const screen = document.querySelector('h2');
-const point = document.querySelector('#point');
-clickButton = 0
-
+let point = document.querySelector('#point');
+let pointAcount = false;
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
-        clickButton = 0
+        clickButton = 0;
         const number = this.textContent;
         screen.textContent += number;
-
+        pointAcount = false;
     });
 });
 
 charSpecialButtons.forEach(function (specialButton) {
     specialButton.addEventListener('click', function () {
-        clickButton = 0
+        clickButton = 0;
         const special = this.textContent;
-        const size = screen.textContent.length - 1
+        const size = screen.textContent.length - 1;
         if (!['+', '-', '/', '*'].includes(screen.textContent[size])) {
             if (special === '-' && screen.textContent === '') {
-                screen.textContent += special
+                screen.textContent += special;
             } else if (typeof screen.textContent[size] == 'string') {
-                screen.textContent += special
+                screen.textContent += special;
+                pointAcount = false;
             }
         }
     });
 });
 
 clear.addEventListener('click', () => {
-    screen.textContent = ''
-    clickButton = 0
-})
-
+    screen.textContent = '';
+    clickButton = 0;
+    pointAcount = false;
+});
 
 sendButton.addEventListener('click', () => {
     let currentResult = eval(screen.textContent);
     console.log(currentResult);
     clickButton++;
     if (clickButton >= 2) {
-        screen.textContent = currentResult * 2
+        screen.textContent = currentResult * 2;
     } else {
         screen.textContent = currentResult;
-    }
+        pointAcount = false;
 
+    }
 });
 
 backSpace.addEventListener('click', () => {
     screen.textContent = screen.textContent.slice(0, -1);
-    clickButton = 0
-})
+    clickButton = 0;
+    pointAcount = false;
+});
 
 point.addEventListener('click', () => {
-    clickButton = 0
-    const size = screen.textContent.length - 1
-    screen.textContent += point.textContent
+    let size = screen.textContent.length - 1;
+    if (screen.textContent == '') {
 
-})
+    } else if (!['.', '+', '-', '/', '*'].includes(screen.textContent[size])) {
+
+        screen.textContent += point.textContent;
+        console.log(pointAcount);
+
+    }
+});
 
 
 // window.addEventListener('keydown', (e) => {
