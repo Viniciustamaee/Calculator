@@ -5,14 +5,15 @@ const clear = document.querySelector('#deleteAll');
 const backSpace = document.querySelector('#delete');
 const screen = document.querySelector('h2');
 let point = document.querySelector('#point');
-let pointActive = false;
+let pointActive = true;
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
         clickButton = 0;
         const number = this.textContent;
         screen.textContent += number;
-        pointActive = true;
+        pointActive = false;
+
     });
 });
 
@@ -21,12 +22,12 @@ charSpecialButtons.forEach(function (specialButton) {
         clickButton = 0;
         const special = this.textContent;
         const size = screen.textContent.length - 1;
-        if (!['+', '-', '/', '*'].includes(screen.textContent[size])) {
+        if (!['+', '-', '/', '*', '.'].includes(screen.textContent[size])) {
             if (special === '-' && screen.textContent === '') {
                 screen.textContent += special;
             } else if (typeof screen.textContent[size] == 'string') {
                 screen.textContent += special;
-                pointActive = false
+                pointActive = true
 
             }
         }
@@ -36,7 +37,6 @@ charSpecialButtons.forEach(function (specialButton) {
 clear.addEventListener('click', () => {
     screen.textContent = '';
     clickButton = 0;
-    pointActive = false;
 });
 
 sendButton.addEventListener('click', () => {
@@ -47,7 +47,6 @@ sendButton.addEventListener('click', () => {
         screen.textContent = currentResult * 2;
     } else {
         screen.textContent = currentResult;
-        pointActive = false;
 
     }
 });
@@ -55,14 +54,13 @@ sendButton.addEventListener('click', () => {
 backSpace.addEventListener('click', () => {
     screen.textContent = screen.textContent.slice(0, -1);
     clickButton = 0;
-    pointActive = false;
 });
 
 point.addEventListener('click', () => {
+    const size = screen.textContent.length - 1;
     if (screen.textContent == '') {
-    } else if (pointActive == true) {
+    } else if (pointActive == false && !['+', '-', '/', '*'].includes(screen.textContent[size])) {
         screen.textContent += point.textContent;
-        pointActive = false
     }
 });
 
