@@ -5,14 +5,14 @@ const clear = document.querySelector('#deleteAll');
 const backSpace = document.querySelector('#delete');
 const screen = document.querySelector('h2');
 let point = document.querySelector('#point');
-let pointAcount = false;
+let pointActive = false;
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
         clickButton = 0;
         const number = this.textContent;
         screen.textContent += number;
-        pointAcount = false;
+        pointActive = true;
     });
 });
 
@@ -26,7 +26,8 @@ charSpecialButtons.forEach(function (specialButton) {
                 screen.textContent += special;
             } else if (typeof screen.textContent[size] == 'string') {
                 screen.textContent += special;
-                pointAcount = false;
+                pointActive = false
+
             }
         }
     });
@@ -35,7 +36,7 @@ charSpecialButtons.forEach(function (specialButton) {
 clear.addEventListener('click', () => {
     screen.textContent = '';
     clickButton = 0;
-    pointAcount = false;
+    pointActive = false;
 });
 
 sendButton.addEventListener('click', () => {
@@ -46,7 +47,7 @@ sendButton.addEventListener('click', () => {
         screen.textContent = currentResult * 2;
     } else {
         screen.textContent = currentResult;
-        pointAcount = false;
+        pointActive = false;
 
     }
 });
@@ -54,17 +55,14 @@ sendButton.addEventListener('click', () => {
 backSpace.addEventListener('click', () => {
     screen.textContent = screen.textContent.slice(0, -1);
     clickButton = 0;
-    pointAcount = false;
+    pointActive = false;
 });
 
 point.addEventListener('click', () => {
-    let size = screen.textContent.length - 1;
-    pointAcount = true
     if (screen.textContent == '') {
-    } else if (!['.', '+', '-', '/', '*'].includes(screen.textContent[size])) {
+    } else if (pointActive == true) {
         screen.textContent += point.textContent;
-        console.log(pointAcount);
-
+        pointActive = false
     }
 });
 
