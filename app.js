@@ -9,10 +9,11 @@ let pointActive = true;
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
-        clickButton = 0;
-        const number = this.textContent;
-        screen.textContent += number;
-        pointActive = false;
+        if (screen.textContent.length <= 18) {
+            const number = this.textContent;
+            screen.textContent += number;
+            pointActive = false;
+        }
 
     });
 });
