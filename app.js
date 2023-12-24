@@ -28,7 +28,7 @@ charSpecialButtons.forEach(function (specialButton) {
                 screen.textContent += special;
             } else if (typeof screen.textContent[size] == 'string') {
                 screen.textContent += special;
-                pointActive = true
+                point.disabled = false
 
             }
         }
@@ -37,7 +37,7 @@ charSpecialButtons.forEach(function (specialButton) {
 
 clear.addEventListener('click', () => {
     screen.textContent = '';
-    clickButton = 0;
+    point.disabled = false
 });
 
 sendButton.addEventListener('click', () => {
@@ -62,6 +62,7 @@ point.addEventListener('click', () => {
     if (screen.textContent == '') {
     } else if (pointActive == false && !['+', '-', '/', '*'].includes(screen.textContent[size])) {
         screen.textContent += point.textContent;
+        point.disabled = true
     }
 });
 
