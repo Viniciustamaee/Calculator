@@ -10,7 +10,7 @@ let clickButton = 0
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
-        if (screen.textContent.length <= 18) {
+        if (screen.textContent.length <= 25) {
             const number = this.textContent;
             screen.textContent += number;
             pointActive = false;
@@ -71,8 +71,10 @@ point.addEventListener('click', () => {
 window.addEventListener('keydown', (e) => {
     const size = screen.textContent.length - 1;
     if (!isNaN(e.key)) {
+        if (screen.textContent.length <= 25) {
         screen.textContent += e.key
         pointActive = false;
+        }
     } else if (e.key === 'Enter') {
         sendButton.click();
     } else if (e.key === 'c') {
