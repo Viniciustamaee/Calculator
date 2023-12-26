@@ -6,6 +6,7 @@ const backSpace = document.querySelector('#delete');
 const screen = document.querySelector('h2');
 let point = document.querySelector('#point');
 let pointActive = true;
+let clickButton = 0
 
 numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener('click', function () {
@@ -60,26 +61,43 @@ backSpace.addEventListener('click', () => {
 point.addEventListener('click', () => {
     const size = screen.textContent.length - 1;
     if (screen.textContent == '') {
-    } else if (pointActive == false && !['+', '-', '/', '*'].includes(screen.textContent[size])) {
+    } else if (!['+', '-', '/', '*'].includes(screen.textContent[size])) {
         screen.textContent += point.textContent;
         point.disabled = true
     }
 });
 
 
-// window.addEventListener('keydown', (e) => {
-//     if (!isNaN(e.key) || ['+', '-', '*', '/'].includes(e.key)) {
-//         if (screen.textContent == '0') {
-//             screen.textContent = e.key;
-//         } else {
-//             screen.textContent += e.key;
-//         }
-//     } else if (e.key === 'Enter') {
-//         sendButton.click();
-//     } else if (e.key === 'c') {
-//         screen.textContent = '0'
-//     } else if (e.key === 'Backspace') {
-//         screen.textContent = screen.textContent.slice(0, -1);
-//     }
-// })
+window.addEventListener('keydown', (e) => {
+    const size = screen.textContent.length - 1;
+    if (!isNaN(e.key)) {
+        screen.textContent += e.key
+        pointActive = false;
+    } else if (e.key === 'Enter') {
+        sendButton.click();
+    } else if (e.key === 'c') {
+        screen.textContent = ''
+    } else if (e.key === 'Backspace') {
+        screen.textContent = screen.textContent.slice(0, -1);
+    } else if (screen.textContent == '' && e.key == ['+', '/', '*']) {
+        screen.textContent = e.key
+    } else if (['+', '-', '*', '/'].includes(e.key)){
+        if (!['+', '-', '/', '*', '.'].includes(screen.textContent[size])) {
+            if (e.key === '-' && screen.textContent === '') {
+                screen.textContent += e.key;
+                clickButton = 0;
+
+            } else if (typeof screen.textContent[size] == 'string') {
+                screen.textContent += e.key;
+                point.disabled = false
+                clickButton = 0;
+
+
+            }
+        }
+
+    }else if (e.key == '.'){
+        point.click();
+    }
+})
 
