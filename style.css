@@ -4,107 +4,158 @@
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    }
-    
-    .div1 { grid-area: 1 / 1 / 2 / 2; }
-    .div2 { grid-area: 1 / 2 / 2 / 3; }
-    .div3 { grid-area: 1 / 3 / 2 / 4; }
-    .div4 { grid-area: 1 / 4 / 2 / 5; }
-    .div5 { grid-area: 2 / 1 / 3 / 2; }
-    .div6 { grid-area: 2 / 2 / 3 / 3; }
-    .div7 { grid-area: 2 / 3 / 3 / 4; }
-    .div8 { grid-area: 2 / 4 / 3 / 5; }
-    .div9 { grid-area: 3 / 1 / 4 / 2; }
-    .div10 { grid-area: 3 / 2 / 4 / 3; }
-    .div11 { grid-area: 3 / 3 / 4 / 4; }
-    .div12 { grid-area: 3 / 4 / 4 / 5; }
-    .div13 { grid-area: 4 / 1 / 5 / 2; }
-    .div14 { grid-area: 4 / 2 / 5 / 3; }
-    .div15 { grid-area: 4 / 3 / 5 / 4; }
-    .div16 { grid-area: 4 / 4 / 6 / 5; }
-    .div17 { grid-area: 5 / 1 / 6 / 3; }
-    .div18 { grid-area: 5 / 3 / 6 / 4; }
+}
+
+.div1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.div2 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.div3 {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.div4 {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.div5 {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.div6 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.div7 {
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+.div8 {
+    grid-area: 2 / 4 / 3 / 5;
+}
+
+.div9 {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.div10 {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.div11 {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.div12 {
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+.div13 {
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+.div14 {
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+.div15 {
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+.div16 {
+    grid-area: 4 / 4 / 6 / 5;
+}
+
+.div17 {
+    grid-area: 5 / 1 / 6 / 3;
+}
+
+.div18 {
+    grid-area: 5 / 3 / 6 / 4;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+#backGround {
+    border: 2px solid #adb5bd;
+    background-color: #495057;
+    border-radius: 30px;
+    width: 450px;
+    padding: 12px 12px 12px 12px;
+}
+
+header h2 {
+    display: flex;
+    align-items: center;
+    background-color: #6c757d;
+    color: white;
+    height: 100px;
+    width: 100%;
+    border-radius: 30px;
+    padding-left: 10px;
+}
+
+button {
+    height: 100px;
+    width: 100px;
+    border: none;
+}
+
+.number,
+#point {
+    background-color: #343A40;
+    color: white;
+}
+
+.charSpecial {
+    background-color: #B0B0B0;
+    color: black;
+}
+
+.send,
+#delete,
+#deleteAll {
+    background-color: #FF6347;
+    color: black
+}
+
+hr {
+    color: #a5a5a5 !important;
+}
+
+#zero {
+    width: 100%;
+}
+
+.send {
+    height: 100%;
+}
+
+#point:disabled {
+    cursor: pointer;
+}
 
 
-
+@media(max-width: 500px) {
     body {
-        font-family: 'Open Sans', sans-serif !important;
-        font-family: 'Roboto', sans-serif !important;
+        background-color: #495057 !important;
     }
-    
+
+    hr {
+        color: #495057 !important;
+    }
+
     #backGround {
-        border: 2px solid #adb5bd;
-        background-color: #495057;
-        border-radius: 30px;
-        width: 450px ;
-    }
-    
-    header h2 {
-        display: flex;
-        align-items: center;
-        background-color: #6c757d;
-        color: white;
-        height: 100px;
-        width: 100%;
-        border-radius: 30px;
-        padding-left: 10px;
-    }
-    
-    button {
-        height: 100px;
-        width: 100px;
         border: none;
     }
-    
-    .number,
-    #point {
-        background-color: #343A40;
-        color: white;
-    }
-    
-    .charSpecial {
-        background-color: #B0B0B0;
-        color: black;
-    }
-    
-    .send,
-    #delete,
-    #deleteAll {
-        background-color: #FF6347;
-        color: black
-    }
-    
-    hr {
-        color: #a5a5a5 !important;
-    }
-    
-    #zero {
-        width: 100%;
-    }
-    
-    .send {
-        height: 100%;
-    }
-    
-    #point:disabled{
-        cursor: pointer;
-    }
-    
 
-    @media(max-width: 500px){
-        body{
-            background-color: #495057 !important;
-        }
 
-        hr{
-            color: #495057 !important;
-        }
 
-        #backGround {
-            border: none;            
-        }
-
-        
-
-    }
-    
+}
